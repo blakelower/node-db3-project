@@ -4,6 +4,7 @@ module.exports = {
   find,
   findById,
   findSteps,
+  add,
 };
 
 function find() {
@@ -14,6 +15,14 @@ function findById(id) {
   return db("schemes").where({ id }).first();
 }
 
-function findSteps(){
-    return db("schemes");
+function findSteps() {
+  return db("schemes");
 }
+
+function add(scheme) {
+    return db("schemes")
+      .insert(scheme, "id")
+      .then(([id]) => {
+        return findById(id);
+      });
+  }
