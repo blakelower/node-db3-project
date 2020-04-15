@@ -18,3 +18,7 @@ JOIN OrderDetail on Product.Id = OrderDetail.ProductId
 WHERE OrderDetail.OrderId = "10251"
 
 -- Display the OrderID, Customer's Company Name and the employee's LastName for every order. All columns should be labeled clearly. Displays 16,789 records.
+SELECT CompanyName, LastName as EmployeesLastName, [Order].Id
+FROM [Order]
+JOIN Employee on Employee.Id = [Order].EmployeeId
+JOIN Customer on Customer.Id = [Order].CustomerId
