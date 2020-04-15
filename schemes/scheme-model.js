@@ -29,11 +29,11 @@ function add(scheme) {
       });
   }
 
-  function update(changes, id) {
+  function update(changes, userId){
     return db("schemes")
-      .where({ id })
-      .update(changes);
-  }
+    .update(changes)
+    .where({id : userId});
+    }
 
   function remove(id) {
     return db("schemes").where("id", id).del();
