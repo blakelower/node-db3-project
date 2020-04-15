@@ -1,9 +1,14 @@
-const db = require('../data/dbconfig');
+const db = require("../data/dbconfig");
 
 module.exports = {
-    find,
+  find,
+  findById,
+};
+
+function find() {
+  return db("schemes");
 }
 
-function find(){
-    return db("schemes");
+function findById(id) {
+  return db("schemes").where({ id }).first();
 }
